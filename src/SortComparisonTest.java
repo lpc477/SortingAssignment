@@ -31,7 +31,10 @@ public class SortComparisonTest
     public void testEmpty()
     {
     	SortComparison testSort = new SortComparison();
-    	double a[];
+    	double a[]=null;
+    	double result[] = null;
+    	result = testSort.insertionSort(a);
+    	assertEquals("Insertion Sort Test if Empty",a,result);
     }
 
 
