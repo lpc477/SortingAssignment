@@ -16,10 +16,21 @@
      *
      */
     static double [] insertionSort (double a[]){
+    	double temp;
+		for (int i = 1; i < a.length; i++) 
+		{
+			for(int j = i ; j > 0 ; j--)
+			{
+				if(a[j] < a[j-1])	//if it is smaller then an preceding entry
+				{
+					temp = a[j];	//swap sequence
+					a[j] = a[j-1];
+					a[j-1] = temp;
+				}
+			}
+		}
 		return a;
-
-        //todo: implement the sort
-    }//end insertionsort
+    }//end insertion sort
 
     /**
      * Sorts an array of doubles using Quick Sort.
@@ -31,7 +42,7 @@
     static double [] quickSort (double a[]){
 		return a;
 	
-		 //todo: implement the sort
+		 //TODO: implement the sort
 
     }//end quicksort
 
@@ -53,7 +64,7 @@
     static double[] mergeSortIterative (double a[]) {
 		return a;
 
-		 //todo: implement the sort
+		 //TODO: implement the sort
 	
     }//end mergesortIterative
     
@@ -70,7 +81,7 @@
 		return a;
     	
 
-    	//todo: implement the sort
+    	//TODO: implement the sort
 	
    }//end mergeSortRecursive
     	
@@ -85,7 +96,7 @@
     static double [] selectionSort (double a[]){
 		return a;
 
-         //todo: implement the sort
+         //TODO: implement the sort
 
     }//end selectionsort
 
@@ -94,7 +105,7 @@
 
     public static void main(String[] args) {
 
-        //todo: do experiments as per assignment instructions
+        //TODO: do experiments as per assignment instructions
     }
 
  }//end class
