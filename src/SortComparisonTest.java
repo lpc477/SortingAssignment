@@ -49,16 +49,16 @@ public class SortComparisonTest
     	double a[] = {8,4,7,3,2,5,6,9,10,1};
     	double sorted[] = {1,2,3,4,5,6,7,8,9,10};
     	double result[]=testSort.insertionSort(a);
-    	for(int i=0;i<a.length;i++) {
+    	/*for(int i=0;i<a.length;i++) {
     		System.out.println(a[i]);
-    	}
+    	}*/
     	boolean equals = true;
     	for(int i=0;i<sorted.length;i++) {
     		if(result[i]!=sorted[i]) {
     			equals = false;				//for loop to check if arrays are equal
     		}
     	}
-    	System.out.println(equals);
+    	//System.out.println(equals);
     	assertTrue("Testing insertionSort",equals);		//WORKS
     }
 
