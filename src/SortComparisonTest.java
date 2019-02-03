@@ -76,6 +76,21 @@ public class SortComparisonTest
     	}
     	assertTrue("Testing quickSort",equals);	//WORKS
     }
+    
+    @Test
+    public void testMergeSortIterative(){
+    	
+    }
+    
+    @Test
+    public void testMergeSortRecursive() {
+    	
+    }
+    
+    @Test
+    public void testSelectionSort() {
+    	
+    }
 
 	// ----------------------------------------------------------
     /**
