@@ -7,7 +7,8 @@
  */
 
  class SortComparison {
-
+	 //Use comparable T to use ints and chars (only used in partition)
+	 //may be redundant if all using doubles
     /**
      * Sorts an array of doubles using InsertionSort.
      * This method is static, thus it can be called as SortComparison.sort(a)
@@ -15,7 +16,7 @@
      * @return array sorted in ascending order.
      *
      */
-    double [] insertionSort (double a[]){
+	 double[] insertionSort (double a[]){
     	double temp;
     	if(a==null) {
     		return a;
@@ -42,13 +43,54 @@
      * @return array sorted in ascending order
      *
      */
-    static double [] quickSort (double a[]){
-		return a;
-	
-		 //TODO: implement the sort
+	 double[] quickSort(double a[]){
+		 if(a==null) {
+			 return a;
+		 }
+		 else {
+			 quickSortRecursion(a,0,a.length-1);
+			 return a;
+		 }
+	 }
+    void quickSortRecursion (double a[],double lo, double hi){
+    	//recursive implementation of quickSort using partition function
 
+    	if(hi <= lo) {
+    		return;
+    		}
+    	int pivot = partition(a, lo, hi);
+    	quickSortRecursion(a, lo, pivot-1);
+    	quickSortRecursion(a, pivot+1, hi);
     }//end quicksort
 
+    private static int partition(double[] numbers, double lo, double hi) {//comparable might not be needed
+    	//function to find the pivot in quickSort
+    	//the int casts are needed for the double array
+    	int i = (int) lo;
+    	int j = (int) (hi+1);
+    	double pivot = numbers[(int) lo];
+    	while(true) {
+    		while(numbers[++i]<pivot) {
+    			if(i == hi) {
+    				break;
+    			}
+    		}
+    		while(pivot<numbers[--j]) {
+    			if(j == lo) {
+    				break;
+    			}
+    		}
+    		if(i >= j) {
+    			break;
+    		}
+    		double temp = numbers[i];
+    		numbers[i] = numbers[j];
+    		numbers[j] = temp;
+    		}
+    	numbers[(int) lo] = numbers[j];
+    	numbers[j] = pivot;
+    	return j;
+    	}
     /**
      * Sorts an array of doubles using Merge Sort.
      * This method is static, thus it can be called as SortComparison.sort(a)
