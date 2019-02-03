@@ -52,7 +52,7 @@
 			 return a;
 		 }
 	 }
-    void quickSortRecursion (double a[],double lo, double hi){
+    private void quickSortRecursion (double a[],double lo, double hi){
     	//recursive implementation of quickSort using partition function
 
     	if(hi <= lo) {
