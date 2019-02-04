@@ -106,9 +106,41 @@
      * @return after the method returns, the array must be in ascending sorted order.
      */
 
-    static public double[] mergeSortIterative (double a[]) {
+    public double[] mergeSortIterative (double a[]) {
+      	if(a==null) {
+    		return a;
+    	}
+    	mergeSortIterativeSort(a);
     	return a;
-    	//TODO: 
+    }
+    
+    private static void mergeSortIterativeSort(double[] a) {
+    	int N = a.length;
+    	double[] copy = new double[N];
+    	for(int k=1;k<N;k=k+k) {
+    		for(int lo=0;lo<N-k;lo+=k+k) {
+    			mergeSortIterativeMerge(a,copy,lo,lo+k-1,Math.min(lo+k+k-1, N-1));
+    		}
+    	}
+    }
+    
+    private static void mergeSortIterativeMerge(double[]a,double[]copy,int lo,int mid, int hi) {
+    	for(int k=lo;k<=hi;k++) {
+    		copy[k]=a[k];
+    	}
+    	int i=lo;
+    	int j=mid+1;
+    	for(int k=lo;k<=hi;k++) {
+    		if(i>mid) {
+    			a[k] = copy[j++];
+    		}else if(j>hi){
+    			a[k]=copy[i++];
+    		}else if(copy[j]<copy[i]) {
+    			a[k]=copy[j++];
+    		}else {
+    			a[k]=copy[i++];
+    		}
+    	}
     }
     
     
