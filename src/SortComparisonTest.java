@@ -45,10 +45,7 @@ public class SortComparisonTest
     	result = testSort.selectionSort(a);
     	assertEquals("Selection Sort if Empty",a,result);		//selectionSort empty test
     }
-
-
-    // TODO: add more tests here. Each line of code and each decision in SortComparison.java should
-    // be executed at least once from at least one test.
+//TESTS
     @Test
     public void testInsertionSort() {
     	SortComparison testSort = new SortComparison();
@@ -136,6 +133,15 @@ public class SortComparisonTest
      */
     public static void main(String[] args)
     {
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
         //TODO: implement this method
     }
 
