@@ -38,6 +38,8 @@ public class SortComparisonTest
     	assertEquals("Insertion Sort Test if Empty",a,result);	//insertionSort empty test 	
     	testSort.quickSort(a);
     	assertEquals("Quick Sort Test if Empty",a,result);		//quickSort empty test
+    	result = testSort.mergeSortIterative(a);
+    	assertEquals("Merge Sort Iterative if Empty",a,result);	//mergeSortIterative empty test
     }
 
 
