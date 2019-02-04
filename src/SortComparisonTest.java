@@ -40,6 +40,8 @@ public class SortComparisonTest
     	assertEquals("Quick Sort Test if Empty",a,result);		//quickSort empty test
     	result = testSort.mergeSortIterative(a);
     	assertEquals("Merge Sort Iterative if Empty",a,result);	//mergeSortIterative empty test
+    	result = testSort.mergeSortRecursive(a);
+    	assertEquals("Merge Sort Recursive if Empty",a,result); //mergeSortRecusive empty test
     }
 
 
@@ -84,6 +86,14 @@ public class SortComparisonTest
     	SortComparison testSort = new SortComparison();
     	double a[] = {8,4,7,3,2,5,6,9,10,1};
     	double sorted[] = {1,2,3,4,5,6,7,8,9,10};
+    	double result[]=testSort.mergeSortIterative(a);
+    	boolean equals = true;
+    	for(int i=0;i<sorted.length;i++) {
+    		if(result[i]!=sorted[i]) {
+    			equals = false;				//for loop to check if arrays are equal
+    		}
+    	}
+    	assertTrue("Testing mergeSortIterative",equals);	//WORKS
     }
     
     @Test
@@ -98,7 +108,7 @@ public class SortComparisonTest
     			equals = false;				//for loop to check if arrays are equal
     		}
     	}
-    	assertTrue("Testing quickSort",equals);	//WORKS
+    	assertTrue("Testing mergeSortRecursive",equals);	//WORKS
     }
     
     @Test
