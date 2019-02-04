@@ -112,7 +112,7 @@
     	}
     	double[] copy = new double[a.length];
     	mergeSortIterativeSort(a,copy,0,a.length-1);
-		 //TODO: implement the sort
+    	return a;
     }//end mergesortIterative
     
     private static void mergeSortIterativeSort(double[]a,double[]copy,int lo,int hi) {
