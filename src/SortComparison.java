@@ -106,13 +106,42 @@
      * @return after the method returns, the array must be in ascending sorted order.
      */
 
-    static double[] mergeSortIterative (double a[]) {
-		return a;
-
+    static public double[] mergeSortIterative (double a[]) {
+    	if(a==null) {
+    		return a;
+    	}
+    	double[] copy = new double[a.length];
+    	mergeSortIterativeSort(a,copy,0,a.length-1);
 		 //TODO: implement the sort
-	
     }//end mergesortIterative
     
+    private static void mergeSortIterativeSort(double[]a,double[]copy,int lo,int hi) {
+    	if(hi<=lo) {
+    		return;
+    	}
+    	int mid = lo+(hi-lo)/2;
+    	mergeSortIterativeSort(a,copy,lo,mid);//left sort
+    	mergeSortIterativeSort(a,copy,mid+1,hi);//right sort
+    	mergeSortIterativeMerge(a,copy,lo,mid,hi);
+    }
+    private static void mergeSortIterativeMerge(double[]a,double[]copy,int lo,int mid, int hi) {
+    	for(int k=lo;k<=hi;k++) {
+    		copy[k]=a[k];
+    	}
+    	int i=lo;
+    	int j=mid+1;
+    	for(int k=lo;k<=hi;k++) {
+    		if(i>mid) {
+    			a[k] = copy[j++];
+    		}else if(j>hi){
+    			a[k]=copy[i++];
+    		}else if(copy[j]<copy[i]) {
+    			a[k]=copy[j++];
+    		}else {
+    			a[k]=copy[i++];
+    		}
+    	}
+    }
     
     
     /**
