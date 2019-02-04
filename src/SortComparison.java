@@ -107,24 +107,38 @@
      */
 
     static public double[] mergeSortIterative (double a[]) {
+    	return a;
+    	//TODO: 
+    }
+    
+    
+    /**
+     * Sorts an array of doubles using recursive implementation of Merge Sort.
+     * This method is static, thus it can be called as SortComparison.sort(a)
+     *
+     * @param a: An unsorted array of doubles.
+     * @return after the method returns, the array must be in ascending sorted order.
+     */
+    public double[] mergeSortRecursive (double a[]) {
     	if(a==null) {
     		return a;
     	}
     	double[] copy = new double[a.length];
-    	mergeSortIterativeSort(a,copy,0,a.length-1);
+    	mergeSortRecursiveSort(a,copy,0,a.length-1);
     	return a;
-    }//end mergesortIterative
-    
-    private static void mergeSortIterativeSort(double[]a,double[]copy,int lo,int hi) {
+   }//end mergeSortRecursive
+    	
+    private static void mergeSortRecursiveSort(double[]a,double[]copy,int lo,int hi) {
     	if(hi<=lo) {
     		return;
     	}
     	int mid = lo+(hi-lo)/2;
-    	mergeSortIterativeSort(a,copy,lo,mid);//left sort
-    	mergeSortIterativeSort(a,copy,mid+1,hi);//right sort
-    	mergeSortIterativeMerge(a,copy,lo,mid,hi);
+    	mergeSortRecursiveSort(a,copy,lo,mid);//left sort
+    	mergeSortRecursiveSort(a,copy,mid+1,hi);//right sort
+    	mergeSortRecursiveMerge(a,copy,lo,mid,hi);
     }
-    private static void mergeSortIterativeMerge(double[]a,double[]copy,int lo,int mid, int hi) {
+    
+    private static void mergeSortRecursiveMerge(double[]a,double[]copy,int lo,int mid, int hi) {
     	for(int k=lo;k<=hi;k++) {
     		copy[k]=a[k];
     	}
@@ -143,22 +157,6 @@
     	}
     }
     
-    
-    /**
-     * Sorts an array of doubles using recursive implementation of Merge Sort.
-     * This method is static, thus it can be called as SortComparison.sort(a)
-     *
-     * @param a: An unsorted array of doubles.
-     * @return after the method returns, the array must be in ascending sorted order.
-     */
-    static double[] mergeSortRecursive (double a[]) {
-		return a;
-    	
-
-    	//TODO: implement the sort
-	
-   }//end mergeSortRecursive
-    	
     
     /**
      * Sorts an array of doubles using Selection Sort.
