@@ -16,7 +16,57 @@ import org.junit.runners.JUnit4;
  *
  *  @author Liam Collins
  *  @version HT 2019
+ *  
+ *  
+ 
+ * QUESTIONS TO ANSWER
+ *
+ *
+ *RESULTS:
+ *						|Insert |  Quick| MergeR| MergeI|	Select
+ *						|-------|-------|-------|-------|-------------
+ *10					|2		|5		|11		|17		|5
+ *						|-------|-------|-------|-------|-------------
+ *100					|90		|39		|79		|62		|116
+ *						|-------|-------|-------|-------|-------------
+ *1000					|3359	|339	|160	|226	|5291
+ *						|-------|-------|-------|-------|-------------
+ *1000 unique			|502	|2537	|54		|116	|268
+ *						|-------|-------|-------|-------|-------------
+ *1000 nearly ordered	|500	|111	|33		|66		|180
+ *						|-------|-------|-------|-------|-------------
+ *1000 reversed			|473	|112	|47		|416	|251
+ *						|-------|-------|-------|-------|--------------
+ *1000 sorted			|306	|70		|32		|66		|181
+ *
+ *
+ *
+a. Which of the sorting algorithms does the order of input have an impact on? Why?
+
+
+b. Which algorithm has the biggest difference between the best and worst performance, based
+on the type of input, for the input of size 1000? Why?
+
+
+c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
+based on the input size? Please consider only input files with random order for this answer.
+
+
+d. Did you observe any difference between iterative and recursive implementations of merge
+sort?
+
+
+e. Which algorithm is the fastest for each of the 7 input files? 
+	10-
+	100-
+	1000-
+	unique-
+	nearlyOrdered-
+	reversed-
+	sorted-
+
  */
+ 
 @RunWith(JUnit4.class)
 public class SortComparisonTest
 {
