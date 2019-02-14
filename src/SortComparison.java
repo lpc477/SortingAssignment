@@ -1,11 +1,44 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *  This class contains static methods that implementing sorting of an array of numbers
  *  using different sort algorithms.
  *
- *  @author
+ *  @author Liam Collins
  *  @version HT 2019
  */
 
+
+
+/**
+ * QUESTIONS TO ANSWER
+ * @author Liam
+ *
+ *RESULTS:
+ *
+ *
+ *
+a. Which of the sorting algorithms does the order of input have an impact on? Why?
+
+
+b. Which algorithm has the biggest difference between the best and worst performance, based
+on the type of input, for the input of size 1000? Why?
+
+
+c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
+based on the input size? Please consider only input files with random order for this answer.
+
+
+d. Did you observe any difference between iterative and recursive implementations of merge
+sort?
+
+
+e. Which algorithm is the fastest for each of the 7 input files? 
+
+
+ */
  class SortComparison {
 	 //Use comparable T to use ints and chars (only used in partition)
 	 //may be redundant if all using doubles
@@ -16,7 +49,7 @@
      * @return array sorted in ascending order.
      *
      */
-	 double[] insertionSort (double a[]){
+	 static double[] insertionSort (double a[]){
     	double temp;
     	if(a==null) {
     		return a;
@@ -43,7 +76,7 @@
      * @return array sorted in ascending order
      *
      */
-	 double[] quickSort(double a[]){
+	 static double[] quickSort(double a[]){
 		 if(a==null) {
 			 return a;
 		 }
@@ -52,7 +85,7 @@
 			 return a;
 		 }
 	 }
-    private void quickSortRecursion (double a[],double lo, double hi){
+    private static void quickSortRecursion (double a[],double lo, double hi){
     	//recursive implementation of quickSort using partition function
 
     	if(hi <= lo) {
@@ -106,7 +139,7 @@
      * @return after the method returns, the array must be in ascending sorted order.
      */
 
-    public double[] mergeSortIterative (double a[]) {
+    public static double[] mergeSortIterative (double a[]) {
       	if(a==null) {
     		return a;
     	}
@@ -151,7 +184,7 @@
      * @param a: An unsorted array of doubles.
      * @return after the method returns, the array must be in ascending sorted order.
      */
-    public double[] mergeSortRecursive (double a[]) {
+    public static double[] mergeSortRecursive (double a[]) {
     	if(a==null) {
     		return a;
     	}
@@ -197,7 +230,7 @@
      * @return array sorted in ascending order
      *
      */
-   public double [] selectionSort (double a[]){
+   public static double [] selectionSort (double a[]){
     	if(a==null) {
     		return a;
     	}
@@ -223,13 +256,6 @@
     		a[i] = temp;
     	}
 
-    }
-   
-
-
-    public static void main(String[] args) {
-
-        //TODO: do experiments as per assignment instructions
     }
 
  }//end class

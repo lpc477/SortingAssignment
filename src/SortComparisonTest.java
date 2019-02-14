@@ -1,6 +1,11 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -134,9 +139,145 @@ public class SortComparisonTest
      *  Use this main method to create the experiments needed to answer the experimental performance questions of this assignment.
      *
      */
-    public static void main(String[] args)
-    {
-        //TODO: implement this method
-    }
+    public static void main(String[] args) 
+	   {
+	    	double unsort[];
+	    	System.out.println("NUMBERS 10 TEST");
+	    	unsort = readArray(10,"numbers10.txt");
+	    	runTests(unsort);
+	    	System.out.println("NUMBERS 100 TEST");
+	    	unsort = readArray(100,"numbers100.txt");
+	    	runTests(unsort);
+	    	System.out.println("NUMBERS 1000 TEST");
+	    	unsort = readArray(1000,"numbers1000.txt");
+	    	runTests(unsort);
+	    	System.out.println("NUMBERS 1000 DUPLICATES TEST");
+	    	unsort = readArray(1000,"numbers1000Duplicates.txt");
+	    	runTests(unsort);
+	    	System.out.println("NUMBERS 1000 NEARLY ORDERED TEST");
+	    	unsort = readArray(1000,"numbersNearlyOrdered1000.txt");
+	    	runTests(unsort);
+	    	System.out.println("NUMBERS 1000 REVERSE TEST");
+	    	unsort = readArray(1000,"numbersReverse1000.txt");
+	    	runTests(unsort);
+	    	System.out.println("NUMBERS 1000 SORTED TEST");
+	    	unsort = readArray(1000,"numbersSorted1000.txt");
+	    	runTests(unsort);
+	    	
+	   }    
+public static void runTests(double[] unsort) {
+	SortComparison testSort = new SortComparison();
+	insertRun(unsort,testSort);
+	quickRun(unsort,testSort);
+	mergeRRun(unsort,testSort);
+	mergeIRun(unsort,testSort);
+	selectionRun(unsort,testSort);
+}
+
+
+public static void insertRun(double[] unsort,SortComparison testSort) {
+ 	double[] test = unsort;
+ 	long avgTime = 0;
+ 	for(int i=0;i<3;i++) {
+ 		long startTime = System.nanoTime();
+ 		testSort.insertionSort(test);
+ 		long endTime = System.nanoTime();
+ 		long runTime = endTime-startTime;
+ 		avgTime+=runTime;
+	    	test = unsort;
+ 	}
+ 	avgTime= avgTime/3;
+ 	avgTime = avgTime/1000;
+ 	System.out.println("Average Run Time for Insertion Sort"
+ 			+ " is: "+avgTime+" milliseconds");
+}
+
+public static void quickRun(double[] unsort,SortComparison testSort) {
+ 	double[] test = unsort;
+ 	long avgTime=0;
+ 	for(int i=0;i<3;i++) {
+ 		long startTime = System.nanoTime();
+ 		test = testSort.quickSort(test);
+ 		long endTime = System.nanoTime();
+ 		long runTime = endTime-startTime;
+ 		avgTime+=runTime;
+	    	test = unsort;	//reset test
+ 	}
+ 	avgTime= avgTime/3;
+ 	avgTime = avgTime/1000;
+ 	System.out.println("Average Run Time for Quick Sort "
+ 			+ "is : "+avgTime+" milliseconds");
+}
+
+public static void mergeRRun(double[] unsort,SortComparison testSort) {
+	double[] test = unsort;
+	long avgTime=0;
+	for(int i=0;i<3;i++) {
+		long startTime = System.nanoTime();
+		test = testSort.mergeSortRecursive(test);
+		long endTime = System.nanoTime();
+		long runTime = endTime-startTime;
+		avgTime+=runTime;
+ 	test = unsort;	//reset test
+	}
+	avgTime= avgTime/3;
+	avgTime = avgTime/1000;
+	System.out.println("Average Run Time for Merge Sort Recursive"
+			+ " is: "+avgTime+" milliseconds");
+}
+public static void mergeIRun(double[] unsort,SortComparison testSort) {
+	double[] test = unsort;
+	long avgTime=0;
+	for(int i=0;i<3;i++) {
+		long startTime = System.nanoTime();
+		test = testSort.mergeSortIterative(test);
+		long endTime = System.nanoTime();
+		long runTime = endTime-startTime;
+		avgTime+=runTime;
+ 	test = unsort;	//reset test
+	}
+	avgTime= avgTime/3;
+	avgTime = avgTime/1000;
+	System.out.println("Average Run Time for Merge Sort Iterative"
+			+ " is: "+avgTime+" milliseconds");
+}
+
+public static void selectionRun(double[] unsort,SortComparison testSort) {
+	double[] test = unsort;
+	long avgTime=0;
+	for(int i=0;i<3;i++) {
+		long startTime = System.nanoTime();
+		test = testSort.selectionSort(test);
+		long endTime = System.nanoTime();
+		long runTime = endTime-startTime;
+		avgTime+=runTime;
+ 	test = unsort;	//reset test
+	}
+	avgTime= avgTime/3;
+	avgTime = avgTime/1000;
+	System.out.println("Average Run Time for Selection Sort "
+			+ " is: "+avgTime+" milliseconds");
+}
+
+
+public static double[] readArray(int size, String filename) 
+	{
+		double result[] = new double[size];
+		FileReader fr;
+		try {
+			fr = new FileReader(filename);
+			BufferedReader br = new BufferedReader(fr);
+			for(int i=0;i<size;i++) {
+				double tmp = br.read();
+				result[i] = tmp;
+			}
+			br.close();
+		} catch (IOException e) {
+			System.out.println("ERROR: File read fail");
+			e.printStackTrace();
+		}
+		
+		return result;	
+ }
 
 }
