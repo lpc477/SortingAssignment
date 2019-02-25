@@ -42,28 +42,36 @@ import org.junit.runners.JUnit4;
  *
  *
 a. Which of the sorting algorithms does the order of input have an impact on? Why?
-
+	All of the input orders had some unique effect on the algos, because for many of them, 
+	it meant more iterations, replacements, or copys. Merge and Select are specificlly 
+	prone to this. They rely on segmenting the arrays, meaning if they have to 
+	reorder each of them with more complexity, it ends up an exponetal increase.
 
 b. Which algorithm has the biggest difference between the best and worst performance, based
 on the type of input, for the input of size 1000? Why?
-
+	Insertion sort does extremely well when the input is ordered, as it only has to pass once through
+	with no switches. This is not true when the input has all unique values. 
 
 c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
 based on the input size? Please consider only input files with random order for this answer.
-
+	Selection sort, because it has an average time complexity of O(n^2). While overall this is
+	a kinda poor efficiency, when n is small, it is fine. As n gets larger, it becomes much
+	more cumbersome
 
 d. Did you observe any difference between iterative and recursive implementations of merge
 sort?
-
+	Iterative seemed to run slower most of the time, but that could just be because of more
+	variable declarations and assignments, increasing constants in the complexity that are
+	ultimately ignored in the equation.
 
 e. Which algorithm is the fastest for each of the 7 input files? 
-	10-
-	100-
-	1000-
-	unique-
-	nearlyOrdered-
-	reversed-
-	sorted-
+	10-insert
+	100-quick
+	1000-merge (recursive)
+	unique-merge (recursive)
+	nearlyOrdered-merge (recursive)
+	reversed-merge (recursive)
+	sorted-merge (recursive)
 
  */
  
@@ -102,8 +110,6 @@ public class SortComparisonTest
     }
 
 
-    // TODO: add more tests here. Each line of code and each decision in SortComparison.java should
-    // be executed at least once from at least one test.
     @Test
     public void testInsertionSort() {
     	SortComparison testSort = new SortComparison();

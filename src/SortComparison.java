@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 
 /**
  *  This class contains static methods that implementing sorting of an array of numbers
@@ -11,34 +9,6 @@ import java.io.IOException;
  */
 
 
-
-/**
- * QUESTIONS TO ANSWER
- * @author Liam
- *
- *RESULTS:
- *
- *
- *
-a. Which of the sorting algorithms does the order of input have an impact on? Why?
-
-
-b. Which algorithm has the biggest difference between the best and worst performance, based
-on the type of input, for the input of size 1000? Why?
-
-
-c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
-based on the input size? Please consider only input files with random order for this answer.
-
-
-d. Did you observe any difference between iterative and recursive implementations of merge
-sort?
-
-
-e. Which algorithm is the fastest for each of the 7 input files? 
-
-
- */
  class SortComparison {
 	 //Use comparable T to use ints and chars (only used in partition)
 	 //may be redundant if all using doubles
